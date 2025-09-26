@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,11 +18,5 @@ app.use("/api", authRoutes);
 app.use("/api", noteRoutes);
 app.use("/api", tenantRoutes);
 
-const MONGO = process.env.MONGO_URI;
 
-mongoose.connect(`${MONGO}`).then(() => {
-    console.log("Connected to MongoDB");
-}).catch(err => {
-    console.error("MongoDB connection error:", err);
-});
 export default app;
