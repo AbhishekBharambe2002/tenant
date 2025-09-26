@@ -20,11 +20,10 @@ app.use("/api", noteRoutes);
 app.use("/api", tenantRoutes);
 
 const MONGO = process.env.MONGO_URI;
-const PORT = process.env.PORT;
 
 mongoose.connect(`${MONGO}`).then(() => {
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
 }).catch(err => {
     console.error("MongoDB connection error:", err);
 });
+export default app;
